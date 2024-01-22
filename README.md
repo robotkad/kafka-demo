@@ -4,6 +4,12 @@ This repo attempts to demonstate the idea of using a kafka topic to keep small i
 
 Topic compaction would be ideal, but has not been implemented. Neither have deletions, but the idea would be that you would emit a tombstone event to remove an id from the in-memory stores.
 
+## tl:dr;
+
+- push in new ids via curl (eg; `curl -X POST http://localhost:8080/blocked -H "Content-Type: application/json" -d '["33287ae3-4a01-4ae8-8d41-e41ff92fd982"]'`)
+- view current ids in a browser `http://localhost:8080/blocked ` (or `curl` if you are not as lazy as me)
+- view docker logs and observe that any one of the five app server returns your request with the full set of id's. anime_wow.wav
+
 ## Prerequisites
 
 Before you begin, ensure you have;
